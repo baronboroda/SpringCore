@@ -1,13 +1,24 @@
 package com.yet.spring.SpringCore;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+public class App {
+
+	private Client client;
+	private ConsoleEventLogger eventLogger;
+	
+	public void logEvent(String msg) {
+		String message = msg.replaceAll(
+				client.getId().toString(), client.getFullName());
+		eventLogger.logEvent(message);
+	}
+	
+	public static void main(String[] args) {
+		
+		App app = new App();
+
+		app.client = new Client(1, "John Smith");
+		app.eventLogger = new ConsoleEventLogger();
+		
+		app.logEvent("Some event for user 1");
+		
+	}
 }
