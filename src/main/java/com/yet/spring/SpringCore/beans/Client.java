@@ -1,4 +1,4 @@
-package com.yet.spring.SpringCore;
+package com.yet.spring.SpringCore.beans;
 
 public class Client {
 
