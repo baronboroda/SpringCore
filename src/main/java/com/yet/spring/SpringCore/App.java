@@ -2,13 +2,11 @@ package com.yet.spring.SpringCore;
 
 import java.util.Map;
 
-//import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.yet.spring.SpringCore.beans.Client;
 import com.yet.spring.SpringCore.beans.Event;
-//import com.yet.spring.SpringCore.loggers.ConsoleEventLogger;
 import com.yet.spring.SpringCore.loggers.EventLogger;
 
 import utils.EventType;
@@ -29,7 +27,7 @@ public class App {
 	
 	public void logEvent(EventType type, Event event, String msg) {
 		
-		String message = msg.replaceAll(client.getId().toString(), client.getFullName());
+		String message = msg.replaceAll(client.getId(), client.getFullName());
         event.setMsg(message);
 		
 		EventLogger logger = loggers.get(type);
