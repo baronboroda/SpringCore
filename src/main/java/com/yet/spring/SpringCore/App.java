@@ -1,6 +1,7 @@
 package com.yet.spring.SpringCore;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.yet.spring.SpringCore.beans.Client;
@@ -28,7 +29,7 @@ public class App {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		ApplicationContext ctx = 
+		ConfigurableApplicationContext ctx = 
 				new ClassPathXmlApplicationContext(
 						"spring.xml");
 		
@@ -38,5 +39,11 @@ public class App {
 		app.logEvent(event, "Some event for user 1");
 		event = ctx.getBean(Event.class);
 		app.logEvent(event, "Some event fot user 2");
+		event = ctx.getBean(Event.class);
+		app.logEvent(event, "Some event fot user 3");
+		event = ctx.getBean(Event.class);
+		app.logEvent(event, "Some event fot user 4");
+		
+		ctx.close();
 	}
 }
